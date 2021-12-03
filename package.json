@@ -2,7 +2,16 @@
   "name": "receipt-cli",
   "version": "0.0.1",
   "description": "Helpers to create components, containers and pages into react projects.",
-  "private": true,
+  "keywords": [
+    "react",
+    "receipt",
+    "cli",
+    "helper",
+    "template",
+    "component",
+    "container",
+    "pages"
+  ],
   "bin": {
     "rc": "bin/receipt-cli"
   },
