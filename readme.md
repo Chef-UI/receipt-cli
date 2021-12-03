@@ -4,6 +4,8 @@ Helpers to create components, containers and pages into react projects.
 
 Each new folder contains a **.jsx**, a **.test.js** and a **.scss** file inside.
 
+To install: ```yarn global add receipt-cli``` or ```npm i -g receipt-cli```.
+
 ## Commands:
 
 Start each command with ```rc```.
