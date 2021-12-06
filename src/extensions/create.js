@@ -1,32 +1,40 @@
 module.exports = (toolbox) => {
-    const { print, parameters, template } = toolbox;
+	const { print, parameters, template } = toolbox;
 
-    async function create (type, name) {
-        if (!name) return print.error(`${type} name should be specified!`);
+	function createTarget(src, dir) {
+		return src || dir;
+	}
 
-        // generate component
-        await template.generate({
-            template: 'component.js.ejs',
-            target: `src/${type}s/${name}/${type}.jsx`,
-            props: { name: parameters.first }
-        });
+	async function create(data) {
+		const { type, src, name } = data;
 
-        // generate tests
-        await template.generate({
-            template: 'test.js.ejs',
-            target: `src/${type}s/${name}/${type}.test.js`,
-            props: { name }
-        });
+		if (!type) return print.error('Type not specified!');
 
-        // generate styles
-        await template.generate({
-            template: 'style.js.ejs',
-            target: `src/${type}s/${name}/${type}.scss`,
-            props: { name }
-        });
+		if (!name) return print.error(`${type} name should be specified!`);
 
-        return print.success(`${name} ${type} created.`);
-    };
+		// generate component
+		await template.generate({
+			template: 'component.js.ejs',
+			target: createTarget(src, `src/${type}s/${name}/${type}.jsx`),
+			props: { name: parameters.first },
+		});
 
-    toolbox.create = create;
+		// generate tests
+		await template.generate({
+			template: 'test.js.ejs',
+			target: createTarget(`src/${type}s/${name}/${type}.test.js`),
+			props: { name },
+		});
+
+		// generate styles
+		await template.generate({
+			template: 'style.js.ejs',
+			target: createTarget(`src/${type}s/${name}/${type}.scss`),
+			props: { name },
+		});
+
+		return print.success(`${name} ${type} created.`);
+	}
+
+	toolbox.create = create;
 };
