@@ -1,44 +1,44 @@
 {
-  "name": "receipt-cli",
-  "version": "0.0.2",
-  "description": "Helpers to create components, containers and pages into react projects.",
-  "keywords": [
-    "react",
-    "receipt",
-    "cli",
-    "helper",
-    "template",
-    "component",
-    "container",
-    "pages"
-  ],
-  "bin": {
-    "rc": "bin/receipt-cli"
-  },
-  "scripts": {
-    "lint": "prettier --write '**/*.{js,json}'",
-    "test": "jest",
-    "watch": "jest --watch",
-    "snapupdate": "jest --updateSnapshot",
-    "coverage": "jest --coverage",
-    "prepare": "husky install"
-  },
-  "files": [
-    "src",
-    "LICENSE",
-    "readme.md",
-    "docs",
-    "bin"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "gluegun": "latest"
-  },
-  "devDependencies": {
-    "husky": "^7.0.4",
-    "jest": "^24.1.0",
-    "lint-staged": "^12.1.2",
-    "prettier": "^2.5.0",
-    "standard": "^12.0.1"
-  }
+	"name": "receipt-cli",
+	"version": "0.0.2",
+	"description": "Helpers to create components, containers and pages into react projects.",
+	"keywords": [
+		"react",
+		"receipt",
+		"cli",
+		"helper",
+		"template",
+		"component",
+		"container",
+		"pages"
+	],
+	"bin": {
+		"rc": "bin/receipt-cli"
+	},
+	"scripts": {
+		"lint": "prettier --write '**/*.{js,json}'",
+		"test": "jest",
+		"watch": "jest --watch",
+		"snapupdate": "jest --updateSnapshot",
+		"coverage": "jest --coverage",
+		"prepare": "husky install"
+	},
+	"files": [
+		"src",
+		"LICENSE",
+		"readme.md",
+		"docs",
+		"bin"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"gluegun": "latest"
+	},
+	"devDependencies": {
+		"husky": "^7.0.4",
+		"jest": "^24.1.0",
+		"lint-staged": "^12.1.2",
+		"prettier": "^2.5.0",
+		"standard": "^12.0.1"
+	}
 }
