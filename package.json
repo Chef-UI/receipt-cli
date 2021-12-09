@@ -1,10 +1,10 @@
 {
 	"name": "receipt-cli",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Chef-UI/receipt-cli"
-  },
-	"version": "0.0.3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Chef-UI/receipt-cli"
+	},
+	"version": "0.0.4",
 	"description": "Helpers to create components, containers and pages into react projects.",
 	"keywords": [
 		"react",
