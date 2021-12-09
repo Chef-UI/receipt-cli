@@ -38,10 +38,18 @@ Creates a new page into pages folder (creates the folder if it doesn't exist).
 rc new:page Home // adds a page named Home into the pages folder
 ```
 
-### Support commands:
+### Others commands:
 - ```rc -h``` opens help menu.
 - ```rc -v``` returns cli version.
 
+## Options:
+
+### :wink: ```--named```
+Names files after `NAME` parameter.
+
+```js
+rc new:component Topbar --named // creates Topbar.jsx, Topbar.scss, Topbar.test.js into Topbar folder
+```
 
 ### Enjoy it! :facepunch:
 
