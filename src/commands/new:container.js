@@ -2,14 +2,9 @@ module.exports = {
 	name: 'new:container',
 	description: 'Creates a container template.',
 	run: async (toolbox) => {
-		const { parameters, create } = toolbox;
+		const { create, handleNamed } = toolbox;
 
-		const name = parameters.first;
-
-		const data = {
-			name,
-			type: 'container',
-		};
+		const data = handleNamed('container');
 
 		await create(data);
 	},

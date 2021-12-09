@@ -1,10 +1,18 @@
 module.exports = (toolbox) => {
 	const { print, template } = toolbox;
 
+	function nameTemplate(data) {
+		const { type, name, named } = data;
+
+		return named ? name : type;
+	}
+
 	function createTarget(data, file) {
 		const { type, src, name } = data;
 
-		return type ? `src/${type}s/${name}/${type}.${file}` : `${src}/${name}/${name}.${file}`;
+		return type
+			? `src/${type}s/${name}/${nameTemplate(data)}.${file}`
+			: `${src}/${name}/${name}.${file}`;
 	}
 
 	async function create(data) {
