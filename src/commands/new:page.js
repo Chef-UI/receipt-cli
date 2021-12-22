@@ -2,10 +2,12 @@ module.exports = {
 	name: 'new:page',
 	description: 'Creates a page template.',
 	run: async (toolbox) => {
-		const { create, handleNamed } = toolbox;
+		const { createTemplate, createTest, createStyle } = toolbox;
 
-		const data = handleNamed('page');
+		const type = 'page';
 
-		await create(data);
+		await createTemplate(type);
+		await createTest(type);
+		await createStyle(type);
 	},
 };

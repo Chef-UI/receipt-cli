@@ -9,9 +9,9 @@ let component = props => <<%= props.name %> {...props} />;
 
 describe('<%= props.name %>', () => {
 
-  it('should render', () => {
-    const { getByText } = render(component());
+	it('should render', () => {
+		const { getByText } = render(component());
 
-    expect(getByText('Template component').textContent).toBeTruthy();
-  });
+		expect(getByText('Template component').textContent).toBeTruthy();
+	});
 });
