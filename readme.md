@@ -2,7 +2,7 @@
 
 Helpers to create components, containers and pages into react projects.
 
-Each new folder contains a **.jsx**, a **.test.js** and a **.scss** file inside.
+Each new folder contains a **.jsx**, a **.test.js** and a **.scss** files inside.
 
 To install: ```yarn global add receipt-cli``` or ```npm i -g receipt-cli```.
 
@@ -14,28 +14,28 @@ Start each command with ```rc```.
 Creates a template into **DIR** folder named **NAME** (creates the folder if it doesn't exist).
 
 ```js
-rc new:template src/lib Button // adds a template named Button into the folder src/lib
+rc new:template src/lib Button // creates Button folder into the respective DIR
 ```
 
 ### :smiley: new:component `NAME`
 Creates a new component into components folder (creates the folder if it doesn't exist).
 
 ```js
-rc new:component Topbar // adds a component named Topbar into the components folder
+rc new:component Topbar // creates Topbar component folder into components folder
 ```
 
 ### :smiley: new:container `NAME`
 Creates a new container into containers folder (creates the folder if it doesn't exist).
 
 ```js
-rc new:container Table // adds a container named Table into the containers folder
+rc new:container Table // creates Table container folder into containers folder
 ```
 
 ### :smiley: new:page `NAME`
 Creates a new page into pages folder (creates the folder if it doesn't exist).
 
 ```js
-rc new:page Home // adds a page named Home into the pages folder
+rc new:page Profile // creates Profile page folder into pages folder
 ```
 
 ### Others commands:
@@ -45,10 +45,10 @@ rc new:page Home // adds a page named Home into the pages folder
 ## Options:
 
 ### :wink: ```--named```
-Names files after `NAME` parameter.
+Set **.jsx** and **.test.js** file names as `NAME` parameter.
 
 ```js
-rc new:component Topbar --named // creates Topbar.jsx, Topbar.scss, Topbar.test.js into Topbar folder
+rc new:component Topbar --named // creates Topbar.jsx, Topbar.test.js and style.scss into Topbar folder
 ```
 
 ### Enjoy it! :facepunch:
