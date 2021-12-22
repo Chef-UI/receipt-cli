@@ -5,16 +5,13 @@ import '@testing-library/jest-dom';
 // COMPONENTS
 import <%= props.name %> from './component';
 
-let component;
+let component = props => <<%= props.name %> {...props} />;
 
-describe('Footer', () => {
-  beforeAll(() => {
-    component = props => <<%= props.name %> {...props} />;
-  });
+describe('<%= props.name %>', () => {
 
-  it('should render each link', () => {
-    const { getByText } = render(component());
+	it('should render', () => {
+		const { getByText } = render(component());
 
-    expect(getByText('Template component').textContent).toBeTruthy();
-  });
+		expect(getByText('Template component').textContent).toBeTruthy();
+	});
 });

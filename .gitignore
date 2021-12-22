@@ -3,4 +3,4 @@ node_modules
 components
 containers
 pages
-__tests__
+coverage

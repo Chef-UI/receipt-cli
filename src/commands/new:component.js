@@ -2,10 +2,18 @@ module.exports = {
 	name: 'new:component',
 	description: 'Creates a component template.',
 	run: async (toolbox) => {
-		const { create, handleNamed } = toolbox;
+		const { parameters, createTemplate, createTest, createStyle } = toolbox;
 
-		const data = handleNamed('component');
+		const type = 'component';
+		const name = parameters.first;
 
-		await create(data);
+		const data = {
+			type,
+			name,
+		};
+
+		await createTemplate(data);
+		await createTest(data);
+		await createStyle(data);
 	},
 };

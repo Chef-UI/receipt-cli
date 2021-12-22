@@ -1,0 +1,5 @@
+{
+	"testRegex": "((\\.|/*.)(test))\\.js?$",
+	"testEnvironment": "jsdom",
+	"verbose": true
+}
