@@ -1,7 +1,7 @@
 const { system, filesystem } = require('gluegun');
-const pjson = require('../../package.json');
+const pjson = require('../package.json');
 
-const src = filesystem.path(__dirname, '../..');
+const src = filesystem.path(__dirname, '..');
 
 const cli = async (cmd) =>
 	system.run('node ' + filesystem.path(src, 'bin', 'receipt-cli') + ` ${cmd}`);

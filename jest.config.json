@@ -1,4 +1,5 @@
 {
-    "testRegex": "((\\.|/*.)(test))\\.js?$",
-    "testEnvironment": "jsdom"
+	"testRegex": "((\\.|/*.)(test))\\.js?$",
+	"testEnvironment": "jsdom",
+	"verbose": true
 }
