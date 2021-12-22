@@ -5,9 +5,15 @@ module.exports = {
 		const { createTemplate, createTest, createStyle } = toolbox;
 
 		const type = 'container';
+		const name = parameters.first;
 
-		await createTemplate(type);
-		await createTest(type);
-		await createStyle(type);
+		const data = {
+			type,
+			name,
+		};
+
+		await createTemplate(data);
+		await createTest(data);
+		await createStyle(data);
 	},
 };

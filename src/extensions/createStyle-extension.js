@@ -1,18 +1,24 @@
 module.exports = (toolbox) => {
-	const { print, parameters, template } = toolbox;
+	const { print, template } = toolbox;
 
-	toolbox.createStyle = async (type) => {
-		if (!type) return print.error('Internal error: type not defined for style!');
+	toolbox.createStyle = async (data) => {
+		const { type, name, src } = data;
 
-		const name = parameters.first;
+		if (!type && !src) return print.error('Internal error: type not defined for style!');
+
+		let target = `src/${type}s/${name}/style.scss`;
+
+		if (src) target = `${src}/${name}/style.scss`; // src/folder/file
 
 		// generate style
 		await template.generate({
 			template: 'style.js.ejs',
-			target: `src/${type}s/${name}/style.scss`,
 			props: { name },
+			target,
 		});
 
-		return print.success(`${name} ${type} style created.`);
+		return src
+			? print.success(`${name} style created.`)
+			: print.success(`${name} ${type} style created.`);
 	};
 };

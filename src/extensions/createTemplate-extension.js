@@ -1,18 +1,24 @@
 module.exports = (toolbox) => {
-	const { print, parameters, template } = toolbox;
+	const { print, template } = toolbox;
 
-	toolbox.createTemplate = async (type) => {
-		if (!type) return print.error('Internal error: type not defined for template!');
+	toolbox.createTemplate = async (data) => {
+		const { type, name, src } = data;
 
-		const name = parameters.first;
+		if (!type && !src) return print.error('Internal error: type not defined for template!');
+
+		let target = `src/${type}s/${name}/${type}.jsx`;
+
+		if (src) target = `${src}/${name}/${name}.jsx`; // src/folder/file
 
 		// generate template
 		await template.generate({
 			template: 'component.js.ejs',
-			target: `src/${type}s/${name}/${type}.jsx`,
 			props: { name },
+			target,
 		});
 
-		return print.success(`${name} ${type} template created.`);
+		return src
+			? print.success(`${name} template created.`)
+			: print.success(`${name} ${type} template created.`);
 	};
 };

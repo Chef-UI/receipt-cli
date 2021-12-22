@@ -2,9 +2,8 @@ module.exports = {
 	name: 'new:template',
 	description: 'Creates a template inside the specific folder template.',
 	run: async (toolbox) => {
-		const { parameters, create } = toolbox;
+		const { parameters, createTemplate, createTest, createStyle } = toolbox;
 
-		// should receive the directory and the template name
 		const src = parameters.first;
 		const name = parameters.second;
 
@@ -13,6 +12,8 @@ module.exports = {
 			src,
 		};
 
-		await create(data);
+		await createTemplate(data);
+		await createTest(data);
+		await createStyle(data);
 	},
 };
