@@ -20,7 +20,7 @@
 		"rc": "bin/receipt-cli"
 	},
 	"scripts": {
-		"lint": "prettier --write '**/*.{js,json}'",
+		"lint": "prettier --write '**/*.{js,json,test.js}'",
 		"test:all": "jest --config ./jest.config.json",
 		"test:watch": "jest --watch --config ./jest.config.json",
 		"watch": "jest --watch",
