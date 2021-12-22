@@ -21,7 +21,7 @@
 	},
 	"scripts": {
 		"lint": "prettier --write '**/*.{js,json}'",
-		"test": "jest",
+		"test:all": "jest --collect-coverage --verbose=true --config ./jest.config.json",
 		"watch": "jest --watch",
 		"snapupdate": "jest --updateSnapshot",
 		"coverage": "jest --coverage",
