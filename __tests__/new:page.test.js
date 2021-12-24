@@ -9,6 +9,7 @@ const newPage = 'new:page Home';
 const newPageNamed = 'new:page Profile --named';
 let output;
 let src;
+let content;
 
 describe('new:page', () => {
 	beforeAll(async () => {
@@ -19,7 +20,7 @@ describe('new:page', () => {
 
 	test('should create page file', async () => {
 		const file = filesystem.find('src/pages/Home', { matching: 'page.jsx' });
-		const content = filesystem.read(`${src}/page.jsx`);
+		content = filesystem.read(`${src}/page.jsx`);
 
 		expect(output).toContain('Home page template created.');
 		expect(file.length).toBe(1);
@@ -28,7 +29,7 @@ describe('new:page', () => {
 
 	test('should create test file', async () => {
 		const file = filesystem.find('src/pages/Home', { matching: 'page.test.js' });
-		const content = filesystem.read(`${src}/page.test.js`);
+		content = filesystem.read(`${src}/page.test.js`);
 
 		expect(output).toContain('Home page tests created.');
 		expect(file.length).toBe(1);
@@ -37,7 +38,7 @@ describe('new:page', () => {
 
 	test('should create style file', async () => {
 		const file = filesystem.find('src/pages/Home', { matching: 'style.scss' });
-		const content = filesystem.read(`${src}/style.scss`);
+		content = filesystem.read(`${src}/style.scss`);
 
 		expect(output).toContain('Home page style created.');
 		expect(file.length).toBe(1);
@@ -54,7 +55,7 @@ describe('new:page named', () => {
 
 	test('should create Profile.jsx', async () => {
 		const file = filesystem.find('src/pages/Profile', { matching: 'Profile.jsx' });
-		const content = filesystem.read(`${src}/Profile.jsx`);
+		content = filesystem.read(`${src}/Profile.jsx`);
 
 		expect(output).toContain('Profile page template created.');
 		expect(file.length).toBe(1);
@@ -63,7 +64,7 @@ describe('new:page named', () => {
 
 	test('should create Profile.test.js', async () => {
 		const file = filesystem.find('src/pages/Profile', { matching: 'Profile.test.js' });
-		const content = filesystem.read(`${src}/Profile.test.js`);
+		content = filesystem.read(`${src}/Profile.test.js`);
 
 		expect(output).toContain('Profile page tests created.');
 		expect(file.length).toBe(1);
@@ -72,7 +73,7 @@ describe('new:page named', () => {
 
 	test('should create style file', async () => {
 		const file = filesystem.find('src/pages/Profile', { matching: 'style.scss' });
-		const content = filesystem.read(`${src}/style.scss`);
+		content = filesystem.read(`${src}/style.scss`);
 
 		expect(output).toContain('Profile page style created.');
 		expect(file.length).toBe(1);

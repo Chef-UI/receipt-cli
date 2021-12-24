@@ -8,17 +8,19 @@ const cli = async (cmd) =>
 const newComponent = 'new:component Topbar';
 const newComponentNamed = 'new:component Footer --named';
 let output;
+let src;
+let content;
 
 describe('new:component', () => {
 	beforeAll(async () => {
 		output = await cli(newComponent);
+		src = 'src/components/Topbar';
 	});
 	afterAll(() => filesystem.remove('src/components/'));
 
 	test('should create component file', async () => {
-		const src = 'src/components/Topbar';
 		const file = filesystem.find(src, { matching: 'component.jsx' });
-		const content = filesystem.read(`${src}/component.jsx`);
+		content = filesystem.read(`${src}/component.jsx`);
 
 		expect(output).toContain('Topbar component template created.');
 		expect(file.length).toBe(1);
@@ -26,9 +28,8 @@ describe('new:component', () => {
 	});
 
 	test('should create test file', async () => {
-		const src = 'src/components/Topbar';
 		const file = filesystem.find(src, { matching: 'component.test.js' });
-		const content = filesystem.read(`${src}/component.test.js`);
+		content = filesystem.read(`${src}/component.test.js`);
 
 		expect(output).toContain('Topbar component tests created.');
 		expect(file.length).toBe(1);
@@ -36,9 +37,8 @@ describe('new:component', () => {
 	});
 
 	test('should create style file', async () => {
-		const src = 'src/components/Topbar';
 		const file = filesystem.find(src, { matching: 'style.scss' });
-		const content = filesystem.read(`${src}/style.scss`);
+		content = filesystem.read(`${src}/style.scss`);
 
 		expect(output).toContain('Topbar component style created.');
 		expect(file.length).toBe(1);
@@ -49,13 +49,13 @@ describe('new:component', () => {
 describe('new:component named', () => {
 	beforeAll(async () => {
 		output = await cli(newComponentNamed);
+		src = 'src/components/Footer';
 	});
 	afterAll(() => filesystem.remove('src/components/'));
 
 	test('should create Footer.jsx', async () => {
-		const src = 'src/components/Footer';
 		const file = filesystem.find(src, { matching: 'Footer.jsx' });
-		const content = filesystem.read(`${src}/Footer.jsx`);
+		content = filesystem.read(`${src}/Footer.jsx`);
 
 		expect(output).toContain('Footer component template created.');
 		expect(file.length).toBe(1);
@@ -63,9 +63,8 @@ describe('new:component named', () => {
 	});
 
 	test('should create Footer.test.js', async () => {
-		const src = 'src/components/Footer';
 		const file = filesystem.find(src, { matching: 'Footer.test.js' });
-		const content = filesystem.read(`${src}/Footer.test.js`);
+		content = filesystem.read(`${src}/Footer.test.js`);
 
 		expect(output).toContain('Footer component tests created.');
 		expect(file.length).toBe(1);
@@ -73,9 +72,8 @@ describe('new:component named', () => {
 	});
 
 	test('should create style file', async () => {
-		const src = 'src/components/Footer';
 		const file = filesystem.find(src, { matching: 'style.scss' });
-		const content = filesystem.read(`${src}/style.scss`);
+		content = filesystem.read(`${src}/style.scss`);
 
 		expect(output).toContain('Footer component style created.');
 		expect(file.length).toBe(1);
