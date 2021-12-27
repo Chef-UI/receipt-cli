@@ -2,26 +2,34 @@ module.exports = (toolbox) => {
 	const { parameters, print, template } = toolbox;
 	const options = parameters.options;
 
-	function setTarget(named, data) {
+	function setTarget(info) {
+		const { data, named, ts } = info;
 		const { type, name } = data;
+		const format = ts ? 'tsx' : 'jsx';
 
-		if (named) return `src/${type}s/${name}/${name}.jsx`; // src/folder/file
+		if (named) return `src/${type}s/${name}/${name}.${format}`; // src/folder/file
 
-		return `src/${type}s/${name}/${type}.jsx`; // src/folder/file
+		return `src/${type}s/${name}/${type}.${format}`; // src/folder/file
 	}
 
 	toolbox.createTemplate = async (data) => {
 		const { type, name, src } = data;
 		const named = options.named;
+		const ts = options.ts;
+		const info = {
+			data,
+			name,
+			ts
+		};
 		let target;
 
 		if (!type && !src) return print.error('Internal error: type not defined for template!');
 
 		if (src && named) return print.error('--named does not serve new:template!');
 
-		if (src) target = `${src}/${name}/${name}.jsx`;
+		if (src) target = `${src}/${name}/${name}.${ts ? 'tsx' : 'jsx'}`;
 		// src/folder/file
-		else target = setTarget(named, data);
+		else target = setTarget(info);
 
 		// generate template
 		await template.generate({
