@@ -2,26 +2,33 @@ module.exports = (toolbox) => {
 	const { parameters, print, template } = toolbox;
 	const options = parameters.options;
 
-	function setTarget(named, data) {
+	function setTarget(info) {
+		const { data, named, ts } = info;
 		const { type, name } = data;
+		const format = ts ? 'tsx' : 'js';
 
-		if (named) return `src/${type}s/${name}/${name}.test.js`; // src/folder/file
+		if (named) return `src/${type}s/${name}/${name}.test.${format}`; // src/folder/file
 
-		return `src/${type}s/${name}/${type}.test.js`; // src/folder/file
+		return `src/${type}s/${name}/${type}.test.${format}`; // src/folder/file
 	}
 
 	toolbox.createTest = async (data) => {
 		const { type, name, src } = data;
 		const named = options.named;
+		const ts = options.ts;
+		const info = {
+			data,
+			named,
+			ts,
+		};
 		let target;
 
 		if (!type && !src) return print.error('Internal error: type not defined for tests!');
 
 		if (src && named) return print.error('--named does not serve new:template!');
 
-		if (src) target = `${src}/${name}/${name}.test.js`;
-		// src/folder/file
-		else target = setTarget(named, data);
+		if (src) target = `${src}/${name}/${name}.test.${ts ? 'tsx' : 'jsx'}`;
+		else target = setTarget(info);
 
 		// generate test
 		await template.generate({

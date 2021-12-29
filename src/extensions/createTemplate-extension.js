@@ -18,8 +18,8 @@ module.exports = (toolbox) => {
 		const ts = options.ts;
 		const info = {
 			data,
-			name,
-			ts
+			named,
+			ts,
 		};
 		let target;
 
@@ -28,7 +28,6 @@ module.exports = (toolbox) => {
 		if (src && named) return print.error('--named does not serve new:template!');
 
 		if (src) target = `${src}/${name}/${name}.${ts ? 'tsx' : 'jsx'}`;
-		// src/folder/file
 		else target = setTarget(info);
 
 		// generate template

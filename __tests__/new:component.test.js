@@ -7,7 +7,7 @@ const cli = async (cmd) =>
 
 const newComponent = 'new:component Topbar';
 const newComponentNamed = 'new:component Footer --named';
-const newComponentTypescript = 'new:component Topbar --ts';
+const newComponentTypescript = 'new:component Link --ts';
 let output;
 let src;
 let content;
@@ -19,7 +19,7 @@ describe('new:component', () => {
 	});
 	afterAll(() => filesystem.remove('src/components/'));
 
-	test('should create component file', async () => {
+	test('should create component.jsx', async () => {
 		const file = filesystem.find(src, { matching: 'component.jsx' });
 		content = filesystem.read(`${src}/component.jsx`);
 
@@ -28,7 +28,7 @@ describe('new:component', () => {
 		expect(content).toContain(`// Topbar template`);
 	});
 
-	test('should create test file', async () => {
+	test('should create component.test.jsx', async () => {
 		const file = filesystem.find(src, { matching: 'component.test.js' });
 		content = filesystem.read(`${src}/component.test.js`);
 
@@ -89,18 +89,18 @@ describe('new:component typescript', () => {
 	});
 	afterAll(() => filesystem.remove('src/components/'));
 
-	test('should create Link.tsx', async () => {
-		const file = filesystem.find(src, { matching: 'Link.tsx' });
-		content = filesystem.read(`${src}/Link.tsx`);
+	test('should create component.tsx', async () => {
+		const file = filesystem.find(src, { matching: 'component.tsx' });
+		content = filesystem.read(`${src}/component.tsx`);
 
 		expect(output).toContain('Link component template created.');
 		expect(file.length).toBe(1);
 		expect(content).toContain(`// Link template`);
 	});
 
-	test('should create Link.test.tsx', async () => {
-		const file = filesystem.find(src, { matching: 'Link.test.txs' });
-		content = filesystem.read(`${src}/Link.test.tsx`);
+	test('should create component.test.tsx', async () => {
+		const file = filesystem.find(src, { matching: 'component.test.tsx' });
+		content = filesystem.read(`${src}/component.test.tsx`);
 
 		expect(output).toContain('Link component tests created.');
 		expect(file.length).toBe(1);
@@ -113,7 +113,7 @@ describe('new:component typescript', () => {
 
 		expect(output).toContain('Link component types created.');
 		expect(file.length).toBe(1);
-		expect(content).toContain(`// Link types`);
+		expect(content).toContain('');
 	});
 
 	test('should create style file', async () => {
