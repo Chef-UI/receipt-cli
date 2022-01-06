@@ -4,7 +4,7 @@
 		"type": "git",
 		"url": "https://github.com/Chef-UI/receipt-cli"
 	},
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Helpers to create components, containers and pages into react projects.",
 	"keywords": [
 		"react",
@@ -17,7 +17,8 @@
 		"pages",
 		"boilerplate",
 		"gluegun",
-		"javascript"
+		"javascript",
+		"typescript"
 	],
 	"bin": {
 		"rc": "bin/receipt-cli"

@@ -51,6 +51,13 @@ Set **.jsx** and **.test.js** file names as `NAME` parameter.
 rc new:component Topbar --named // creates Topbar.jsx, Topbar.test.js and style.scss into Topbar folder
 ```
 
+### :wink: ```--ts```
+Create files in typescript format (**.tsx**, **.test.tsx**).
+
+```js
+rc new:component Box --ts // creates Box.tsx, Box.test.tsx, types.ts and style.scss into Box folder
+```
+
 ### Enjoy it! :facepunch:
 
 
