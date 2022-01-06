@@ -3,15 +3,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-// COMPONENTS
-import <%= props.name %> from './component';
+import <%= props.name %> from './<%= props.templateType %>';
 
-let component = props => <<%= props.name %> {...props} />;
+let wrapper = props => <<%= props.name %> {...props} />;
 
 describe('<%= props.name %>', () => {
 
 	it('should render', () => {
-		const { getByText } = render(component());
+		const { getByText } = render(wrapper());
 
 		expect(getByText('Template component').textContent).toBeTruthy();
 	});

@@ -12,6 +12,14 @@ module.exports = (toolbox) => {
 		return `src/${type}s/${name}/${type}.test.${format}`; // src/folder/file
 	}
 
+	function setTemplateType(info) {
+		const { data, named } = info;
+		const { type, name } = data;
+
+		if (named) return name;
+		return type;
+	}
+
 	toolbox.createTest = async (data) => {
 		const { type, name, src } = data;
 		const named = options.named;
@@ -22,6 +30,7 @@ module.exports = (toolbox) => {
 			ts,
 		};
 		let target;
+		let templateType = setTemplateType(info);
 
 		if (!type && !src) return print.error('Internal error: type not defined for tests!');
 
@@ -33,7 +42,7 @@ module.exports = (toolbox) => {
 		// generate test
 		await template.generate({
 			template: 'test.js.ejs',
-			props: { name },
+			props: { name, templateType },
 			target,
 		});
 
