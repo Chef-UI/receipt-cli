@@ -4,7 +4,7 @@
 		"type": "git",
 		"url": "https://github.com/Chef-UI/receipt-cli"
 	},
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Helpers to create components, containers and pages into react projects.",
 	"keywords": [
 		"react",
@@ -17,7 +17,8 @@
 		"pages",
 		"boilerplate",
 		"gluegun",
-		"javascript"
+		"javascript",
+		"typescript"
 	],
 	"bin": {
 		"rc": "bin/receipt-cli"
@@ -26,6 +27,10 @@
 		"lint": "prettier --write '**/*.{js,json,test.js}'",
 		"test:all": "jest --config ./jest.config.json",
 		"test:watch": "jest --watch --config ./jest.config.json",
+		"test:component": "jest -- __tests__/new:component.test.js --config ./jest.config.json",
+		"test:container": "jest -- __tests__/new:container.test.js --config ./jest.config.json",
+		"test:page": "jest -- __tests__/new:page.test.js --config ./jest.config.json",
+		"test:template": "jest -- __tests__/new:template.test.js --config ./jest.config.json",
 		"watch": "jest --watch",
 		"snapupdate": "jest --updateSnapshot",
 		"coverage": "jest --coverage",
