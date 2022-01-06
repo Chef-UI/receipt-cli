@@ -27,7 +27,7 @@ module.exports = (toolbox) => {
 
 		if (src && named) return print.error('--named does not serve new:template!');
 
-		if (src) target = `${src}/${name}/${name}.test.${ts ? 'tsx' : 'jsx'}`;
+		if (src) target = `${src}/${name}/${name}.test.${ts ? 'tsx' : 'js'}`;
 		else target = setTarget(info);
 
 		// generate test
